@@ -28,7 +28,32 @@ class DepartementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'image' => 'required| mimes:jpg,png',
+        ]);
+
+        /*if ($validator->fails()) {
+            return response()->json([
+                'message' => 'la validation a échoué',
+                'errors' => $validator->errors()
+            ], 422);
+        };*/
+
+        if($request->file('image')){
+            $file = $request->file('image');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('public/images'), $filename);
+        }
+        Departement::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $filename,
+        ]);
+
+
+        return redirect("admin/departement")->withSuccess('You have signed-in');
     }
 
     /**
