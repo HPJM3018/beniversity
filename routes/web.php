@@ -57,7 +57,10 @@ Route::post('/admin/create_donation', [DonationController::class, 'store'])->nam
 Route::put('/admin/update_donation/{id}', [DonationController::class, 'update'])->name('donation_update');
 Route::delete('/admin/destroy_donation/{id}', [DonationController::class, 'destroy'])->name('donation_destroy');
 
-Route::get('/admin/departement', [DepartementController::class, 'index'])->name('departement');
-Route::post('/admin/create_departement', [DepartementController::class, 'store'])->name('departement_store');
-Route::put('/admin/update_departement/{id}', [DepartementController::class, 'update'])->name('departement_update');
-Route::delete('/admin/destroy_departement/{id}', [DepartementController::class, 'destroy'])->name('departement_destroy');
+Route::get('/admin/departements', [DepartementController::class, 'index'])->name('departements.index');
+Route::get('/admin/departements/create', [DepartementController::class, 'create'])->name('departements.create');
+Route::post('/admin/departements', [DepartementController::class, 'store'])->name('departements.store');
+Route::get('/admin/departements/{departement}', [DepartementController::class, 'show'])->name('departements.show');
+Route::get('/admin/departements/{departement}/edit', [DepartementController::class, 'edit'])->name('departements.edit');
+Route::put('/admin/departements/{departement}', [DepartementController::class, 'update'])->name('departements.update');
+Route::delete('/admin/departements/{departement}', [DepartementController::class, 'destroy'])->name('departements.destroy');

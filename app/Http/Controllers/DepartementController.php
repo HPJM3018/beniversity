@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Departement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DepartementController extends Controller
 {
@@ -12,7 +13,8 @@ class DepartementController extends Controller
      */
     public function index()
     {
-        return view('admin/departement');
+        $departements = Departement::all();
+        return view('admin.departements.index', compact('departements'));
     }
 
     /**
@@ -20,7 +22,7 @@ class DepartementController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.departements.edit");
     }
 
     /**
@@ -29,9 +31,9 @@ class DepartementController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
+            'name' => 'required|string|max:255',
             'description' => 'required',
-            'image' => 'required| mimes:jpg,png',
+            'picture' => 'required|mimes:jpg,png',
         ]);
 
         /*if ($validator->fails()) {
@@ -41,19 +43,19 @@ class DepartementController extends Controller
             ], 422);
         };*/
 
-        if($request->file('image')){
-            $file = $request->file('image');
+        if($request->file('picture')){
+            $file = $request->file('picture');
             $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('public/images'), $filename);
+            $file->move(public_path('departements'), $filename);
+
+            Departement::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'picture' => $filename,
+            ]);
         }
-        Departement::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'image' => $filename,
-        ]);
 
-
-        return redirect("admin/departement")->withSuccess('You have signed-in');
+        return redirect("admin/departements")->with('success', 'Département créer avec succèss');
     }
 
     /**
@@ -61,7 +63,7 @@ class DepartementController extends Controller
      */
     public function show(Departement $departement)
     {
-        //
+        return view("departements.show", compact("departement"));
     }
 
     /**
@@ -69,7 +71,7 @@ class DepartementController extends Controller
      */
     public function edit(Departement $departement)
     {
-        //
+        return view("admin.departements.edit", compact("departement"));
     }
 
     /**
@@ -77,7 +79,36 @@ class DepartementController extends Controller
      */
     public function update(Request $request, Departement $departement)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'description' => 'required',
+        ]);
+
+        // Si une nouvelle image est envoyée
+        if ($request->has("picture")) {
+            // On ajoute la règle de validation pour "picture"
+            $validator["picture"] = 'required|mimes:jpg,png';
+        }
+        /*if ($validator->fails()) {
+            return response()->json([
+                'message' => 'la validation a échoué',
+                'errors' => $validator->errors()
+            ], 422);
+        };*/
+
+        if($request->file('picture')){
+            $file = $request->file('picture');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('departements'), $filename);
+
+            Departement::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'picture' => $filename,
+            ]);
+        }
+
+        return redirect("departements/show")->with('success', 'Département mise à jour avec succèss');;
     }
 
     /**
@@ -85,6 +116,8 @@ class DepartementController extends Controller
      */
     public function destroy(Departement $departement)
     {
-        //
+        Storage::delete($departement->picture);
+        $departement->delete();
+        return view('admin/departements')->with('success', 'Departements supprimé avec succès');
     }
 }
