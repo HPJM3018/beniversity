@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-6">
                                 <div class="donations-list__img">
-                                    <img src="assets/images/resources/donations-list-img-1.jpg" alt="">
+                                    <img src="{{asset('/storage/' .$training->image)}}" alt="">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
@@ -26,7 +26,7 @@
                                         </div>
                                         <h3 class="donations-list__title"><a href="donation-details.html">
                                         {{Str::title($training->titre)}}</a></h3>
-                                        <p class="donations-list__text"> {{$training->description}}</p>
+                                        <p class="donations-list__text"> {{Str::limit($training->description,75)}}</p>
                                         
                                     </div>
                                 </div>

@@ -56,6 +56,7 @@ Route::put('/admin/update_training/{id}', [TrainingController::class, 'update'])
 Route::delete('/admin/destroy_training/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
 #Blogs
 Route::get('/admin/blog', [BlogController::class, 'index'])->name('blogs');
+Route::get('/users/show', [BlogController::class, 'show'])->name('users.blogs');
 Route::post('/admin/create_blog', [BlogController::class, 'store'])->name('blog.store');
 Route::get('/admin/creates_blog', [BlogController::class, 'create'])->name('blog.create');
 Route::put('/admin/update_blog/{id}', [BlogController::class, 'update'])->name('blog.update');
