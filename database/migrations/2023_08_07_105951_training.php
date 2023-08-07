@@ -13,11 +13,14 @@ class Training extends Migration
      */
     public function up()
     {
-        $table->id();
-        $table->string('titre');
-        $table->text('description');
-        $table->string('image');
-        $table->string('lieu');
+        Schema::create('trainings', function (Blueprint $table) {
+            $table->id();
+            $table->string('titre');
+            $table->string('lieu');
+            $table->text('description');
+            $table->string('image');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,6 +30,6 @@ class Training extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('trainings');
     }
 }

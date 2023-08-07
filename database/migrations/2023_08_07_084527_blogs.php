@@ -12,11 +12,14 @@ class Blogs extends Migration
      * @return void
      */
     public function up()
-    {   
-        $table->id();
-        $table->string('titre');
-        $table->text('description');
-        $table->string('image');
+    {
+        Schema::create('blogs', function (Blueprint $table) {
+            $table->id();
+            $table->string('titre');
+            $table->text('description');
+            $table->string('image');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -26,6 +29,6 @@ class Blogs extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('blogs');
     }
 }
