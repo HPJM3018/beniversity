@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Departement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class DepartementController extends Controller
@@ -108,7 +109,7 @@ class DepartementController extends Controller
             ]);
         }
 
-        return redirect("departements/show")->with('success', 'Département mise à jour avec succèss');;
+        return redirect("admin/departements")->with('success', 'Département mise à jour avec succèss');;
     }
 
     /**
@@ -118,6 +119,6 @@ class DepartementController extends Controller
     {
         Storage::delete($departement->picture);
         $departement->delete();
-        return view('admin/departements')->with('success', 'Departements supprimé avec succès');
+        return redirect("admin/departements")->with('success', 'Departements supprimé avec succès');
     }
 }

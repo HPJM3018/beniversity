@@ -62,7 +62,7 @@
                                             <th scope="col">Image</th>
                                             <th scope="col">Nom du département</th>
                                             <th scope="col">Description</th>
-                                            <th scope="col">Action</th>
+                                            <th colspan="2" scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -73,14 +73,17 @@
                                             <td>{{ $departement->name }}</td>
                                             <td>{{ $departement->description }}</td>
                                             <td>
-                                                <span>
-                                                    <a href="{{ route('departements.edit', $departement)}}" class="mr-4" data-toggle="tooltip"
+                                                <a href="{{ route('departements.edit', $departement)}}" class="mr-4" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"><i
-                                                            class="fa fa-pencil color-muted"></i> </a>
-                                                    <a href="javascript:void()" data-toggle="tooltip"
-                                                        data-placement="top" title="Close"><i
-                                                            class="fa fa-close color-danger"></i></a>
-                                                </span>
+                                                            class="fa fa-pencil color-muted"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('departements.destroy', $departement)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger" type="submit"><i class="fa fa-close color-danger"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endforeach

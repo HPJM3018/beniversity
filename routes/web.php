@@ -60,7 +60,7 @@ Route::delete('/admin/destroy_donation/{id}', [DonationController::class, 'destr
 Route::get('/admin/departements', [DepartementController::class, 'index'])->name('departements.index');
 Route::get('/admin/departements/create', [DepartementController::class, 'create'])->name('departements.create');
 Route::post('/admin/departements', [DepartementController::class, 'store'])->name('departements.store');
-Route::get('/admin/departements/{departement}', [DepartementController::class, 'show'])->name('departements.show');
 Route::get('/admin/departements/{departement}/edit', [DepartementController::class, 'edit'])->name('departements.edit');
 Route::put('/admin/departements/{departement}', [DepartementController::class, 'update'])->name('departements.update');
 Route::delete('/admin/departements/{departement}', [DepartementController::class, 'destroy'])->name('departements.destroy');
+Route::get('/admin/departements/{departement}', [DepartementController::class, 'show'])->name('departements.show');
