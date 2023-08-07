@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blogs;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreBlogRequest;
 
 class BlogController extends Controller
 {
@@ -14,25 +15,28 @@ class BlogController extends Controller
     {
         return view('admin.blog.index');
     }
-    public function stores()
-    {
-        return view('admin.blog.edit');
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('admin.blog.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreBlogRequest $request)
     {
-        //
+        $imageName = $request->image->store('Imgblog');
+        Blogs:: create([
+            'titre'=> $request->titre,
+            'description'=> $request->description,
+            'image'=> $imageName
+        ]);
+
+        return redirect()->route('blog')->with('sucess',' le blog a été ajouter');
     }
 
     /**

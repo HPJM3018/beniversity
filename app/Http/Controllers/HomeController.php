@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Blogs;
+use App\Models\Training;
 class HomeController extends Controller
 {
     public function index()
@@ -38,12 +39,14 @@ class HomeController extends Controller
 
     public function blog()
     {
-        return view('blog');
+        $blogs = Blogs::all();
+        return view('blog',compact('blogs'));
     }
 
     public function trainings()
     {
-        return view('trainings');
+        $training = Training::all();
+        return view('trainings', compact('training'));
     }
 
     public function event_details()

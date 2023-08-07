@@ -51,13 +51,13 @@ Route::delete('/admin/destroy_event/{id}', [EventController::class, 'destroy'])-
 #Training
 Route::get('/admin/training', [TrainingController::class, 'index'])->name('training');
 Route::post('/admin/create_training', [TrainingController::class, 'store'])->name('training.store');
-Route::get('/admin/creates_training', [TrainingController::class, 'stores'])->name('trainings.store');
+Route::get('/admin/creates_training', [TrainingController::class, 'create'])->name('training.create');
 Route::put('/admin/update_training/{id}', [TrainingController::class, 'update'])->name('training.update');
 Route::delete('/admin/destroy_training/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
 #Blogs
 Route::get('/admin/blog', [BlogController::class, 'index'])->name('blogs');
 Route::post('/admin/create_blog', [BlogController::class, 'store'])->name('blog.store');
-Route::get('/admin/creates_blog', [BlogController::class, 'stores'])->name('blogs.store');
+Route::get('/admin/creates_blog', [BlogController::class, 'create'])->name('blog.create');
 Route::put('/admin/update_blog/{id}', [BlogController::class, 'update'])->name('blog.update');
 #Route::get('/admin/updates_blog/{id}', [BlogController::class, 'updates'])->name('blogs.update');
 #Route::get('/admin/destroys_blog/{id}', [BlogController::class, 'destroys'])->name('blogs.destroy');

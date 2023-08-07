@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Training;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTrainingRequest;
 
 class TrainingController extends Controller
 {
@@ -14,24 +15,29 @@ class TrainingController extends Controller
     {
         return view('admin.training.index');
     }
-    public function stores()
-    {
-        return view('admin.training.edit');
-    }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('admin.training.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTrainingRequest $request)
     {
-        //
+        $imageName = $request->image->store('Imgtraining');
+        Training:: create([
+            'titre'=> $request->titre,
+            'description'=> $request->description,
+            'lieu'=> $request->lieu,
+            'image'=> $imageName
+
+        ]);
+
+        return redirect()->route('trainings')->with('sucess',' la formation a été ajouter');
     }
 
     /**
