@@ -45,8 +45,8 @@ class HomeController extends Controller
 
     public function trainings()
     {
-        $training = Training::all();
-        return view('trainings', compact('training'));
+        $trainings = Training::all();
+        return view('trainings', compact('trainings'));
     }
 
     public function event_details()
