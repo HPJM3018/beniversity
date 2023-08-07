@@ -8,6 +8,8 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,11 +48,23 @@ Route::get('/admin/event', [EventController::class, 'index'])->name('event');
 Route::post('/admin/create_event', [EventController::class, 'store'])->name('event_store');
 Route::put('/admin/update_event/{id}', [EventController::class, 'update'])->name('event_update');
 Route::delete('/admin/destroy_event/{id}', [EventController::class, 'destroy'])->name('event_destroy');
-
+#Training
 Route::get('/admin/training', [TrainingController::class, 'index'])->name('training');
-Route::post('/admin/create_training', [TrainingController::class, 'store'])->name('training_store');
-Route::put('/admin/update_training/{id}', [TrainingController::class, 'update'])->name('training_update');
-Route::delete('/admin/destroy_training/{id}', [TrainingController::class, 'destroy'])->name('training_destroy');
+Route::post('/admin/create_training', [TrainingController::class, 'store'])->name('training.store');
+Route::get('/admin/creates_training', [TrainingController::class, 'create'])->name('training.create');
+Route::put('/admin/update_training/{id}', [TrainingController::class, 'update'])->name('training.update');
+Route::delete('/admin/destroy_training/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
+#Blogs
+Route::get('/admin/blog', [BlogController::class, 'index'])->name('blogs');
+Route::post('/admin/create_blog', [BlogController::class, 'store'])->name('blog.store');
+Route::get('/admin/creates_blog', [BlogController::class, 'create'])->name('blog.create');
+Route::put('/admin/update_blog/{id}', [BlogController::class, 'update'])->name('blog.update');
+#Route::get('/admin/updates_blog/{id}', [BlogController::class, 'updates'])->name('blogs.update');
+#Route::get('/admin/destroys_blog/{id}', [BlogController::class, 'destroys'])->name('blogs.destroy');
+Route::delete('/admin/destroy_blog/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
+#contacts
+Route::get('/admin/contact', [ContactController::class, 'index'])->name('contact');
+
 
 Route::get('/admin/donation', [DonationController::class, 'index'])->name('donation');
 Route::post('/admin/create_donation', [DonationController::class, 'store'])->name('donation_store');

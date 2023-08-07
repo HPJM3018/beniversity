@@ -2,48 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Training;
+use App\Models\Blogs;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreTrainingRequest;
+use App\Http\Requests\StoreBlogRequest;
 
-class TrainingController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.training.index');
+        return view('admin.blog.index');
     }
+    
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('admin.training.create');
+        return view('admin.blog.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTrainingRequest $request)
+    public function store(StoreBlogRequest $request)
     {
-        $imageName = $request->image->store('Imgtraining');
-        Training:: create([
+        $imageName = $request->image->store('Imgblog');
+        Blogs:: create([
             'titre'=> $request->titre,
             'description'=> $request->description,
-            'lieu'=> $request->lieu,
             'image'=> $imageName
-
         ]);
 
-        return redirect()->route('trainings')->with('sucess',' la formation a été ajouter');
+        return redirect()->route('blog')->with('sucess',' le blog a été ajouter');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Training $training)
+    public function show(Blogs $blogs)
     {
         //
     }
@@ -51,7 +50,7 @@ class TrainingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Training $training)
+    public function edit(Blogs $blogs)
     {
         //
     }
@@ -59,7 +58,7 @@ class TrainingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Training $training)
+    public function update(Request $request, Blogs $blogs)
     {
         //
     }
@@ -67,7 +66,7 @@ class TrainingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Training $training)
+    public function destroy(Blogs $blogs)
     {
         //
     }
