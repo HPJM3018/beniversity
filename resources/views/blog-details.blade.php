@@ -25,7 +25,6 @@
 
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
-                @foreach($blogs as $blog)
                     <div class="news-details__left">
                         <div class="news-details__img">
                             <img src="{{asset('/storage/' .$blog->image)}}" alt="">
@@ -36,7 +35,6 @@
                         </div>
                         
                     </div>
-                @endforeach
             </div>
         </div>
     </section>

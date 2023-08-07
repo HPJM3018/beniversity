@@ -38,11 +38,11 @@
                         <div class="news-one__content-box">
                             <div class="news-one__content-inner">
                                 <div class="news-one__content">
-                                    <h3 class="news-one__title"><a href="{{ route('users.blogs',$blogs)}}">{{Str::title($blog->titre)}}</a></h3>
+                                    <h3 class="news-one__title"><a href="#"> {{Str::title($blog->titre)}}</a></h3>
                                 </div>
                                 <div class="news-one__bottom">
                                     <div class="news-one__read-more">
-                                        <a href="{{ route('users.blogs',$blogs) }}"> <span class="icon-right-arrow"></span> 
+                                        <a href="#"> <span class="icon-right-arrow"></span> 
                                             Voir plus </a>
                                     </div>
                                 </div>
