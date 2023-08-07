@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Event;
+use App\Models\Donation;
+use App\Models\Training;
+use App\Models\Departement;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -12,7 +16,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin/index');
+        $departements = Departement::all();
+        $donations = Donation::all();
+        $events = Event::all();
+        $trainings = Training::all();
+        return view('admin/index', compact([
+            'departements',
+            'donations',
+            'events',
+            'trainings',
+        ]));
     }
 
     /**
