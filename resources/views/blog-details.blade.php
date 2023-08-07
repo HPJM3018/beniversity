@@ -21,23 +21,7 @@
 
     <!--News details Start-->
     <section class="news-details">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-xl-8 col-lg-7">
-                    <div class="news-details__left">
-                        <div class="news-details__img">
-                            <img src="{{asset('/storage/' .$blog->image)}}" alt="">
-                        </div>
-                        <div class="news-details__content">
-                            <h3 class="news-details__title">{{Str::title($blog->titre)}}</h3>
-                            <p class="news-details__text-1"> {{$blog->description}}</p> <br> <br>
-                        </div>
-                        
-                    </div>
-            </div>
-        </div>
-    </section>
+        
     <!--News details End-->
 
 @endsection

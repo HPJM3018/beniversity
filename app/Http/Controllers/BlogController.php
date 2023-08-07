@@ -44,8 +44,7 @@ class BlogController extends Controller
      */
     public function show(Blogs $blogs)
     {
-        $blogs = Blogs::all();
-        return view('blog-details',compact('blogs'));
+        return view('admin.blog.show',compact('blogs'));
     }
 
     /**
