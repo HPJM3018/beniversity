@@ -159,6 +159,12 @@
             <li><a href="{{ route('training') }}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
                 class="nav-text">Formations</span></a>
             </li>
+            <li><a href="{{ route('contact') }}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                class="nav-text">Contacts</span></a>
+            </li>
+            <li><a href="{{ route('blogs') }}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                class="nav-text">Blogs</span></a>
+            </li>
             <li class="nav-label">Apps</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                         class="icon icon-app-store"></i><span class="nav-text">Apps</span></a>

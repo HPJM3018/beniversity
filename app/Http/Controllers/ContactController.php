@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Training;
+use App\Models\Contacts;
 use Illuminate\Http\Request;
 
-class TrainingController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.training.index');
+        return view('admin/contacts');
     }
-    public function stores()
-    {
-        return view('admin.training.edit');
-    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -37,7 +34,7 @@ class TrainingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Training $training)
+    public function show(Contacts $contacts)
     {
         //
     }
@@ -45,7 +42,7 @@ class TrainingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Training $training)
+    public function edit(Contacts $contacts)
     {
         //
     }
@@ -53,7 +50,7 @@ class TrainingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Training $training)
+    public function update(Request $request, Contacts $contacts)
     {
         //
     }
@@ -61,7 +58,7 @@ class TrainingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Training $training)
+    public function destroy(Contacts $contacts)
     {
         //
     }
