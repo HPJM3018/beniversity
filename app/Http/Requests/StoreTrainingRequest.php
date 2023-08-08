@@ -23,11 +23,21 @@ class StoreTrainingRequest extends FormRequest
      */
     public function rules()
     {
+        if(request()->routeIs('training.store')){
+            $imageRule = 'image|required';
+        }elseif(request()->routeIs('training.update')){
+            $imageRule = 'image|sometimes';
+        }
         return [
             'titre'=>'required',
             'description'=>'required',
             'lieu'=>'required',
-            'image'=>'image|required'
+            'image'=>$imageRule
         ];
+    }
+    protected function prepareForValidation(){
+        if($this->image == null){
+            $this->request->remove('image');
+        }
     }
 }

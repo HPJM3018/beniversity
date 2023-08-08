@@ -23,10 +23,20 @@ class StoreBlogRequest extends FormRequest
      */
     public function rules()
     {
+        if(request()->routeIs('blog.store')){
+            $imageRule = 'image|required';
+        }elseif(request()->routeIs('blogs.update')){
+            $imageRule = 'image|sometimes';
+        }
         return [
             'titre'=> 'required',
             'description'=>'required',
-            'image'=>'image|required'
+            'image'=>$imageRule
         ];
+    }
+    protected function prepareForValidation(){
+        if($this->image == null){
+            $this->request->remove('image');
+        }
     }
 }

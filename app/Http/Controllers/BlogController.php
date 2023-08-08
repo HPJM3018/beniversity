@@ -13,7 +13,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('admin.blog.index');
+        $blogs= Blogs::all();
+        return view('admin.blog.index',compact('blogs'));
     }
     
     /**
@@ -42,25 +43,40 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Blogs $blogs)
+    public function show($id)
     {
-        return view('admin.blog.show',compact('blogs'));
+        $blog= Blogs::find($id);
+        return view('blog-details',compact('blog'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blogs $blogs)
+    public function edit($id)
     {
-        //
+        $blog = Blogs::find($id);
+        return view('admin.blog.edit', compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blogs $blogs)
+    public function update(StoreBlogRequest $request,  $id)
     {
-        //
+        $blog = Blogs::find($id);
+        $arrayUpdate = [
+            'titre'=>$request->titre,
+            'description'=>$request->description,
+        ];
+        if($request->image != null){
+            $imageName = $request->image->store('Imgblog');
+            $arrayUpdate = array_merge($arrayUpdate,
+            [
+                'image'=>$imageName
+            ]);
+        }
+        $blog->update($arrayUpdate);
+        return redirect()->route('blog')->with('sucess',' le blog a été modifier');
     }
 
     /**
