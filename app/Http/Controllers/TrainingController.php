@@ -13,7 +13,8 @@ class TrainingController extends Controller
      */
     public function index()
     {
-        return view('admin.training.index');
+        $trainings= Training::all();
+        return view('admin.training.index',compact('trainings'));
     }
     /**
      * Show the form for creating a new resource.
@@ -45,23 +46,38 @@ class TrainingController extends Controller
      */
     public function show(Training $training)
     {
-        //
+       // return view ('admin.training.show', compact('training'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Training $training)
+    public function edit($id)
     {
-        //
+        $training =Training::find($id);
+        return view('admin.training.edit', compact('training'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Training $training)
+    public function update(StoreTrainingRequest $request, $id)
     {
-        //
+        $training = Training::find($id);
+        $arrayUpdate = [
+            'titre'=>$request->titre,
+            'lieu'=>$request->lieu,
+            'description'=>$request->description,
+        ];
+        if($request->image != null){
+            $imageName = $request->image->store('Imgtraining');
+            $arrayUpdate = array_merge($arrayUpdate,
+            [
+                'image'=>$imageName
+            ]);
+        }
+        $training->update($arrayUpdate);
+        return redirect()->route('trainings')->with('sucess',' la formation a été modifier');
     }
 
     /**

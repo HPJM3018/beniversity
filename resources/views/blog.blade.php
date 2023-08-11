@@ -24,24 +24,25 @@
     @endif
 
     <!--News Page Start-->
+    
     <section class="news-page">
-        <div class="container">
-            @foreach($blogs as $blog)
+    @foreach($blogs as $blog)
+        <div class="container">         
             <div class="row">
                 <!--News One Single Start-->
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                     <div class="news-one__single">
                         <div class="news-one__img">
-                            <img src="assets/images/blog/news-1-1.jpg" alt="">
+                            <img src="{{asset('/storage/' .$blog->image)}}" alt="">
                         </div>
                         <div class="news-one__content-box">
                             <div class="news-one__content-inner">
                                 <div class="news-one__content">
-                                    <h3 class="news-one__title"><a href="{{ route('blog-details') }}">{{Str::title($blog->titre)}}</a></h3>
+                                    <h3 class="news-one__title"><a href="{{route('blog.show',['id'=>$blog->id])}}"> {{Str::title($blog->titre)}}</a></h3>
                                 </div>
                                 <div class="news-one__bottom">
                                     <div class="news-one__read-more">
-                                        <a href="{{ route('blog-details') }}"> <span class="icon-right-arrow"></span> 
+                                        <a href="{{route('blog.show',['id'=>$blog->id])}}"> <span class="icon-right-arrow"></span> 
                                             Voir plus </a>
                                     </div>
                                 </div>
@@ -60,8 +61,9 @@
                     </div>
                 </div>
             </div>
-            @endforeach
         </div>    
-        </div>           
+        </div>
+        @endforeach
     </section>
+
 @endsection
