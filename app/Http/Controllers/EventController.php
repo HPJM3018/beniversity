@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
@@ -12,7 +14,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('admin/event');
+        $events = Event::all();
+        return view('admin.events.index', compact('events'));
     }
 
     /**
@@ -20,7 +23,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.events.create");
     }
 
     /**
@@ -28,33 +31,31 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'image' => 'required',
+        $validator = Validator::make($request->all(), [
+            'title' => 'requiredrequired|string|max:255',
+            'picture' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'description' => 'required',
-            'location' => 'required',
-            'category_id' => 'required',
+            'description' => 'requiredrequired|string',
+            'location' => 'requiredrequired|string|max:255',
         ]);
 
-        if($request->file('image')){
-            $file = $request->file('image');
+        if($request->file('picture')){
+            $file = $request->file('picture');
             $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('public/images'), $filename);
+            $file->move(public_path('images/events'), $filename);
             
-            Category::create([
+            Event::create([
                 'title' => $request->title,
-                'image' => $filename,
+                'picture' => $filename,
                 'date' => $request->date,
                 'time' => $request->time,
                 'description' => $request->description,
                 'location' => $request->location,
-                'category_id' => $request->category_id,
             ]);
         }
 
-        return redirect("dashboard/category")->withSuccess('You have signed-in');
+        return redirect("admin/events")->with('success', 'Evenement créer avec succèss');
     }
 
     /**
@@ -62,7 +63,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view("events.show", compact("event"));
     }
 
     /**
@@ -70,7 +71,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view("admin.event.edit", compact('event'));
     }
 
     /**
@@ -80,7 +81,7 @@ class EventController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'image' => 'required',
+            'picture' => 'required',
             'date' => 'required',
             'time' => 'required',
             'description' => 'required',
@@ -113,9 +114,8 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
-        $categories = Category::all();
-        return view('dashboard/category', compact('categories'))->with('success', 'Catégorie supprimé avec succès');
+        Storage::delete($event->picture);
+        $event->delete();
+        return redirect("admin/events")->with('success', 'Evenement supprimé avec succès');
     }
 }

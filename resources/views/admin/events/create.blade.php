@@ -30,39 +30,46 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Editer un département</h4>
+                    <h4 class="card-title">Créer un événement</h4>
                 </div>
                 <div class="card-body">
                     <div class="basic-form">
-	                    <form method="POST" action="{{ route('departements.update', $departement) }}" enctype="multipart/form-data" >
-
-		                @method('PUT')
+                        <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data">
 
                             @csrf
 
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label>Nom du département</label>
-                                    <input type="text" value="{{ $departement->name }}" class="form-control" placeholder="1234 Main St" name="name">
+                                    <label>Titre de l'événement</label>
+                                    <input type="text" class="form-control" placeholder="1234 Main St" name="title">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Description du département</label>
-                                    <textarea name="description" class="form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du département" >{{ $departement->description }}</textarea>
+                                    <label>Description de l'événement</label>
+                                    <textarea name="description" class="form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du département" ></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Image</label>
-                                    <div>
-                                        <img src="{{ url('departements/'.$departement->picture) }}" alt="" width="50" height="50">
-                                    </div>
+                                    <label>Date</label>
+                                    <input type="date" class="form-control" placeholder="1234 Main St" name="date">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Heure</label>
+                                    <input type="time" class="form-control" placeholder="1234 Main St" name="time">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Lieu</label>
+                                    <input type="text" class="form-control" placeholder="1234 Main St" name="location">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input type="file" name="picture" class="custom-file-input">
                                         <label class="custom-file-label">Image</label>
                                     </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
                                 </div>
                             </div>
-                            <button type="submit" name="modifier" class="btn btn-primary">Modifier</button>
+                            <button type="submit" name="valider" class="btn btn-primary">Valider</button>
                         </form>
                     </div>
                 </div>

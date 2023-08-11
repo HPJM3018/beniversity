@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Blogs;
+use App\Models\Event;
+use App\Models\Donation;
 use App\Models\Training;
+use App\Models\Departement;
+use Illuminate\Http\Request;
+
 class HomeController extends Controller
 {
     public function index()
@@ -19,22 +23,25 @@ class HomeController extends Controller
 
     public function donations()
     {
-        return view('donations');
+        return view('donations', compact('donations'));
     }
 
     public function donation_details()
     {
-        return view('donation-details');
+        $donations = Donation::all();
+        return view('donation-details', compact('donations'));
     }
 
     public function donate_now()
     {
-        return view('donate-now');
+        $donations = Donation::all();
+        return view('donate-now', compact('donations'));
     }
 
     public function events()
     {
-        return view('events');
+        $events = Event::all();
+        return view('events', compact('events'));
     }
 
     public function blog()
@@ -49,9 +56,9 @@ class HomeController extends Controller
         return view('trainings', compact('trainings'));
     }
 
-    public function event_details()
+    public function event_details(Event $event)
     {
-        return view('event-details');
+        return view('event-details', compact('event'));
     }
 
     public function blog_details()
@@ -71,11 +78,12 @@ class HomeController extends Controller
 
     public function departements()
     {
-        return view('departements');
+        $departements = Departement::all();
+        return view('departements', compact('departements'));
     }
 
-    public function departement_details()
+    public function departement_details(Departement $departement)
     {
-        return view('departement-details');
+        return view('departement-details', compact('departement'));
     }
 }

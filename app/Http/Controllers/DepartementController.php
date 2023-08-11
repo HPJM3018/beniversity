@@ -23,7 +23,7 @@ class DepartementController extends Controller
      */
     public function create()
     {
-        return view("admin.departements.edit");
+        return view("admin.departements.create");
     }
 
     /**
@@ -47,7 +47,7 @@ class DepartementController extends Controller
         if($request->file('picture')){
             $file = $request->file('picture');
             $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('departements'), $filename);
+            $file->move(public_path('images/departements'), $filename);
 
             Departement::create([
                 'name' => $request->name,
@@ -72,7 +72,7 @@ class DepartementController extends Controller
      */
     public function edit(Departement $departement)
     {
-        return view("admin.departements.edit", compact("departement"));
+        return view("admin.departements.edit", compact('departement'));
     }
 
     /**

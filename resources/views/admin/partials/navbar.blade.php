@@ -8,7 +8,7 @@
     ***********************************-->
     <div class="nav-header">
         <a href="index.html" class="brand-logo">
-    <img class="logo-abbr" src="./images/logo.png" alt="">
+    <img class="logo-abbr" src="./images/logo.jpeg" alt="">
         <img class="logo-compact" src="./images/logo-text.png" alt="">
         <img class="brand-title" src="./images/logo-text.png" alt="">
     </a>
@@ -144,7 +144,7 @@
             <li><a href="{{ route('training') }}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
                 class="nav-text">Formations</span></a>
             </li>
-            <li><a href="{{ route('event') }}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+            <li><a href="{{ route('events.index') }}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
                 class="nav-text">Evenement</span></a>
             <li><a href="{{ route('contact') }}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
                 class="nav-text">Contacts</span></a>
@@ -167,7 +167,7 @@
                     <li><a href="./app-calender.html">Calendar</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('donation') }}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+            <li><a href="{{ route('donations') }}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
                 class="nav-text">Don</span></a>
             </li>
             <li><a href="{{ route('departements.index') }}" aria-expanded="false"><i class="icon icon-globe-2"></i><span

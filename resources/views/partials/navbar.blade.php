@@ -79,7 +79,7 @@
                                     <a href="{{ route('donations') }}">Donations</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('departements') }}">Departements</a>
+                                    <a href="{{ route('departements') }}">Départements</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('events') }}">Événements</a>

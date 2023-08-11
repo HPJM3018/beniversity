@@ -12,7 +12,8 @@ class DonationController extends Controller
      */
     public function index()
     {
-        return view('admin/donation');
+        $donations = Donation::all();
+        return view('admin.donations.index', compact('donations'));
     }
 
     /**
@@ -20,7 +21,7 @@ class DonationController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.donations.create");
     }
 
     /**
@@ -28,7 +29,39 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:255',
+            'description' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'summary' => 'required',
+            'picture' => 'required|mimes:jpg,png',
+        ]);
+
+        /*if ($validator->fails()) {
+            return response()->json([
+                'message' => 'la validation a échoué',
+                'errors' => $validator->errors()
+            ], 422);
+        };*/
+
+        if($request->file('picture')){
+            $file = $request->file('picture');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('departements'), $filename);
+
+            Departement::create([
+                'title' => $request->name,
+                'date' => $request->date,
+                'time' => $request->time,
+                'summary' => $request->summary,
+                'description' => $request->description,
+                'picture' => $filename,
+            ]);
+        }
+
+        return redirect("admin/donations")->with('success', 'Don créer avec succèss');
+
     }
 
     /**
@@ -36,7 +69,7 @@ class DonationController extends Controller
      */
     public function show(Donation $donation)
     {
-        //
+        return view("donations.show", compact("donations"));
     }
 
     /**
@@ -44,7 +77,7 @@ class DonationController extends Controller
      */
     public function edit(Donation $donation)
     {
-        //
+        return view("admin.donations.edit", compact('donation'));
     }
 
     /**
@@ -60,6 +93,8 @@ class DonationController extends Controller
      */
     public function destroy(Donation $donation)
     {
-        //
+        Storage::delete($donation->picture);
+        $donation->delete();
+        return redirect("admin/donations")->with('success', 'Don supprimé avec succès');
     }
 }

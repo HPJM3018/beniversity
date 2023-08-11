@@ -27,9 +27,9 @@
                     <div class="event-details__left">
                         <div class="event-details__top">
                             <div class="event-details__date">
-                                <p>23 Mai, 2022</p>
+                                <p>{{ $event->date }}</p>
                             </div>
-                            <h3 class="event-details__title">Play for the world</h3>
+                            <h3 class="event-details__title">{{ $event->title }}</h3>
                             <p class="event-details__text-1">Neque porro est qui dolorem ipsum quia quaed inventore
                                 veritatis et quasi architecto beatae vitae dicta sunt explicabo. Aelltes port lacus
                                 quis enim var sed efficitur turpis gilla sed sit amet finibus eros. Lorem Ipsum is
@@ -81,11 +81,11 @@
                             <ul class="list-unstyled event-details__info-list">
                                 <li>
                                     <span>Temps:</span>
-                                    <p>8h00 à 12h30</p>
+                                    <p>{{ $event->time }} à 12h30 </p>
                                 </li>
                                 <li>
                                     <span>Date:</span>
-                                    <p>23 mai 2022</p>
+                                    <p>{{ $event->date }}</p>
                                 </li>
                                 <li>
                                     <span>Categorie:</span>
@@ -93,7 +93,7 @@
                                 </li>
                                 <li>
                                     <span>Lieu:</span>
-                                    <p>Broklyn, New York</p>
+                                    <p>{{ $event->location }}</p>
                                 </li>
                             </ul>
                             <div class="event-details__social">

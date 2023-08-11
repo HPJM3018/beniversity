@@ -30,13 +30,13 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class,'about'])->name('about');
 Route::get('/blog', [HomeController::class,'blog'])->name('blog');
 Route::get('/donations', [HomeController::class,'donations'])->name('donations');
-Route::get('/donation-details', [HomeController::class,'donation_details'])->name('donation-details');
+Route::get('/donation-details/{donation}', [HomeController::class,'donation_details'])->name('donation-details');
 Route::get('/donate-now', [HomeController::class,'donate_now'])->name('donate-now');
 Route::get('/events', [HomeController::class,'events'])->name('events');
-Route::get('/event-details', [HomeController::class,'event_details'])->name('event-details');
+Route::get('/event-details/{event}', [HomeController::class,'event_details'])->name('event-details');
 Route::get('/contact', [HomeController::class,'contact'])->name('contact');
 Route::get('/departements', [HomeController::class,'departements'])->name('departements');
-Route::get('/departement-details', [HomeController::class,'departement_details'])->name('departement-details');
+Route::get('/departement-details/{departement}', [HomeController::class,'departement_details'])->name('departement-details');
 Route::get('/trainings', [HomeController::class,'trainings'])->name('trainings');
 Route::get('/blog-details', [HomeController::class,'blog_details'])->name('blog-details');
 Route::get('/become-volunteer', [HomeController::class,'become_volunteer'])->name('become-volunteer');
@@ -44,10 +44,6 @@ Route::get('/become-volunteer', [HomeController::class,'become_volunteer'])->nam
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
-Route::get('/admin/event', [EventController::class, 'index'])->name('event');
-Route::post('/admin/create_event', [EventController::class, 'store'])->name('event_store');
-Route::put('/admin/update_event/{id}', [EventController::class, 'update'])->name('event_update');
-Route::delete('/admin/destroy_event/{id}', [EventController::class, 'destroy'])->name('event_destroy');
 #Training
 Route::get('/admin/training', [TrainingController::class, 'index'])->name('training');
 Route::post('/admin/create_training', [TrainingController::class, 'store'])->name('training.store');
@@ -66,10 +62,14 @@ Route::delete('/admin/destroy_blog/{id}', [BlogController::class, 'destroy'])->n
 Route::get('/admin/contact', [ContactController::class, 'index'])->name('contact');
 
 
-Route::get('/admin/donation', [DonationController::class, 'index'])->name('donation');
-Route::post('/admin/create_donation', [DonationController::class, 'store'])->name('donation_store');
-Route::put('/admin/update_donation/{id}', [DonationController::class, 'update'])->name('donation_update');
-Route::delete('/admin/destroy_donation/{id}', [DonationController::class, 'destroy'])->name('donation_destroy');
+Route::get('/admin/donations', [DonationController::class, 'index'])->name('donations.index');
+Route::get('/admin/donations/create', [DonationController::class, 'create'])->name('donations.create');
+Route::post('/admin/donations', [DonationController::class, 'store'])->name('donations.store');
+Route::get('/admin/donations/{donation}/edit', [DonationController::class, 'edit'])->name('donations.edit');
+Route::put('/admin/donations/{donation}', [DonationController::class, 'update'])->name('donations.update');
+Route::delete('/admin/donations/{donation}', [DonationController::class, 'destroy'])->name('donations.destroy');
+Route::get('/admin/donations/{donation}', [DonationController::class, 'show'])->name('donations.show');
+
 
 Route::get('/admin/departements', [DepartementController::class, 'index'])->name('departements.index');
 Route::get('/admin/departements/create', [DepartementController::class, 'create'])->name('departements.create');
@@ -78,3 +78,11 @@ Route::get('/admin/departements/{departement}/edit', [DepartementController::cla
 Route::put('/admin/departements/{departement}', [DepartementController::class, 'update'])->name('departements.update');
 Route::delete('/admin/departements/{departement}', [DepartementController::class, 'destroy'])->name('departements.destroy');
 Route::get('/admin/departements/{departement}', [DepartementController::class, 'show'])->name('departements.show');
+
+Route::get('/admin/events', [EventController::class, 'index'])->name('events.index');
+Route::get('/admin/events/create', [EventController::class, 'create'])->name('events.create');
+Route::post('/admin/events', [EventController::class, 'store'])->name('events.store');
+Route::get('/admin/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
+Route::put('/admin/events/{event}', [EventController::class, 'update'])->name('events.update');
+Route::delete('/admin/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
+Route::get('/admin/events/{event}', [EventController::class, 'show'])->name('events.show');

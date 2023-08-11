@@ -26,7 +26,7 @@
                 <div class="col-xl-8 col-lg-7">
                     <div class="news-details__left">
                         <div class="news-details__img">
-                            <img src="assets/images/blog/news-details-img-1.jpg" alt="">
+                            <img src="{{ url('images/departements/'.$departement->picture) }}" alt="">
                         </div>
                         <div class="news-details__content">
                             <ul class="list-unstyled news-details__meta">
@@ -57,56 +57,6 @@
                                 hendrerit ipsum. Sed eget auctor metus, ac dapibus dolor. Mauris gravida lacus
                                 metus, ac sagittis tortor hendrerit sit simply free text amet.</p>
                         </div>
-                        <!--Events Page Start-->
-    <section class="events-page">
-        <h3 class="donation-details__summary-title">Autres départements</h3>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-1.jpg" alt="">
-                            <div class="events-one__content">
-                                <h3 class="events-one__title"><a href="event-details.html">Play for the
-                                        world
-                                        with us</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-2.jpg" alt="">
-                            <div class="events-one__content">
-                                <h3 class="events-one__title"><a href="event-details.html">Contrary to
-                                        popular belief</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-3.jpg" alt="">
-                            <div class="events-one__content">
-                                <h3 class="events-one__title"><a href="event-details.html">There are
-                                        many variations of</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Events Page End-->
-
                         <div class="news-details__bottom">
                             <p class="news-details__tags">
                                 <span>Tags</span>
@@ -125,61 +75,6 @@
                                 <li>Why is it important to support them</li>
                                 <li>Survived not only five centuries</li>
                             </ul>
-                        </div>
-                        <div class="comment-one">
-                            <h3 class="comment-one__title">2 commentaires</h3>
-                            <div class="comment-one__single">
-                                <div class="comment-one__image">
-                                    <img src="assets/images/blog/comment-1-1.jpg" alt="">
-                                </div>
-                                <div class="comment-one__content">
-                                    <h3>Kevin martin</h3>
-                                    <p>It has survived not only five centuries, but also the leap into electronic
-                                        typesetting unchanged. It was popularised in the sheets containing lorem
-                                        ipsum is simply free text.</p>
-                                    <a href="news-details.html" class="thm-btn comment-one__btn">Reply</a>
-                                </div>
-                            </div>
-                            <div class="comment-one__single">
-                                <div class="comment-one__image">
-                                    <img src="assets/images/blog/comment-1-2.jpg" alt="">
-                                </div>
-                                <div class="comment-one__content">
-                                    <h3>Sarah albert</h3>
-                                    <p>It has survived not only five centuries, but also the leap into electronic
-                                        typesetting unchanged. It was popularised in the sheets containing lorem
-                                        ipsum is simply free text.</p>
-                                    <a href="news-details.html" class="thm-btn comment-one__btn">Reply</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-form">
-                            <h3 class="comment-form__title">Laissez un commentaire</h3>
-                            <form action="https://layerdrops.com/oxpinshtml/main-html/assets/inc/sendemail.php" class="comment-one__form contact-form-validated"
-                                novalidate="novalidate">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Votre nom" name="name">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="comment-form__input-box">
-                                            <input type="email" placeholder="Adresse e-mail" name="email">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="comment-form__input-box text-message-box">
-                                            <textarea name="message" placeholder="Écrire un message"></textarea>
-                                        </div>
-                                        <div class="comment-form__btn-box">
-                                            <button type="submit" class="thm-btn comment-form__btn">Envoyer un commentaire</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>

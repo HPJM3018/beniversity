@@ -23,84 +23,20 @@
     <section class="events-page">
         <div class="container">
             <div class="row">
+                @foreach($departements as $departement)
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <!--Events One Single Start-->
                     <div class="events-one__single">
                         <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-1.jpg" alt="">
+                            <img src="{{ url('images/departements/'.$departement->picture) }}" alt="">
                             <div class="events-one__content">
-                                <h3 class="events-one__title"><a href="{{ route('departement-details') }}">Play for the world with us</a></h3>
+                                <h3 class="events-one__title"><a href="{{ route('departement-details', $departement) }}">{{ $departement->name }}</a></h3>
                             </div>
                         </div>
                     </div>
                     <!--Events One Single End-->
                 </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-2.jpg" alt="">
-                            <div class="events-one__content">
-                                <h3 class="events-one__title"><a href="{{ route('departement-details') }}">Contrary to
-                                        popular belief</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-3.jpg" alt="">
-                            <div class="events-one__content">
-                                <h3 class="events-one__title">
-                                    <a href="{{ route('departement-details') }}">There are many variations of</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-3.jpg" alt="">
-                            <div class="events-one__content">
-                                <h3 class="events-one__title"><a href="{{ route('departement-details') }}">There are
-                                        many variations of</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-3.jpg" alt="">
-                            <div class="events-one__content">
-                                <h3 class="events-one__title"><a href="{{ route('departement-details') }}">There are
-                                        many variations of</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-3.jpg" alt="">
-                            <div class="events-one__content">
-                                <h3 class="events-one__title"><a href="{{ route('departement-details') }}">There are
-                                        many variations of</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

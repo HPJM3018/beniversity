@@ -38,8 +38,8 @@
                                 <i class="ti-money text-success border-success"></i>
                             </div>
                             <div class="stat-content d-inline-block">
-                                <div class="stat-text">Départements</div>
-                                <div class="stat-digit">{{ $departements->count() }}</div>
+                                <div class="stat-text">Donations</div>
+                                <div class="stat-digit">{{ $donations->count() }}</div>
                             </div>
                         </div>
                     </div>
@@ -50,8 +50,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Liste des départements</h4>
-                            <a href="{{ route('departements.create') }}" title="Créer un département" >Créer un nouveau département</a>
+                            <h4 class="card-title">Liste des donations</h4>
+                            <a href="{{ route('donations.create') }}" title="Créer un département" >Créer une nouvelle donation</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -60,26 +60,32 @@
                                         <tr>
                                             <th scope="col">N°</th>
                                             <th scope="col">Image</th>
-                                            <th scope="col">Nom du département</th>
+                                            <th scope="col">Titre du don</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Heure</th>
                                             <th scope="col">Description</th>
+                                            <th scope="col">Résumé</th>
                                             <th colspan="2" scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($departements as $departement)
+                                        @foreach ($donations as $donation)
                                         <tr>
-                                            <td>{{ $departement->id }}</td>
-                                            <td><img src="{{ url('images/departements/'.$departement->picture) }}" alt="" width="50" height="50"></td>
-                                            <td>{{ $departement->name }}</td>
-                                            <td>{{ $departement->description }}</td>
+                                            <td>{{ $donation->id }}</td>
+                                            <td><img src="{{ url('donations/'.$donation->picture) }}" alt="" width="50" height="50"></td>
+                                            <td>{{ $donation->title }}</td>
+                                            <td>{{ $donation->date }}</td>
+                                            <td>{{ $donation->time }}</td>
+                                            <td>{{ $donation->description }}</td>
+                                            <td>{{ $donation->summary }}</td>
                                             <td>
-                                                <a href="{{ route('departements.edit', $departement)}}" class="mr-4" data-toggle="tooltip"
+                                                <a href="{{ route('donations.edit', $donation)}}" class="mr-4" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"><i
                                                             class="fa fa-pencil color-muted"></i>
                                                 </a>
                                             </td>
                                             <td>
-                                                <form action="{{ route('departements.destroy', $departement)}}" method="POST">
+                                                <form action="{{ route('donations.destroy', $donation)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" type="submit"><i class="fa fa-close color-danger"></i></button>

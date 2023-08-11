@@ -23,128 +23,29 @@
     <section class="events-page">
         <div class="container">
             <div class="row">
+                @foreach($events as $event)
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <!--Events One Single Start-->
                     <div class="events-one__single">
                         <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-1.jpg" alt="">
+                            <img src="{{ url('images/events/'.$event->picture) }}" alt="">
                             <div class="events-one__date">
-                                <p>23 May, 2022</p>
+                                <p>{{ $event->date }}</p>
                             </div>
                             <div class="events-one__content">
                                 <ul class="list-unstyled events-one__meta">
-                                    <li><i class="fas fa-clock"></i>8:00pm</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>New York</li>
+                                    <li><i class="fas fa-clock"></i>{{ $event->time }}</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>{{ $event->location }}</li>
                                 </ul>
-                                <h3 class="events-one__title"><a href="{{ route('event-details') }}">Play for the
-                                        world
-                                        with us</a></h3>
+                                <h3 class="events-one__title">
+                                    <a href="{{ route('event-details', $event) }}">{{ $event->title }}</a>
+                                </h3>
                             </div>
                         </div>
                     </div>
                     <!--Events One Single End-->
                 </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-2.jpg" alt="">
-                            <div class="events-one__date">
-                                <p>23 May, 2022</p>
-                            </div>
-                            <div class="events-one__content">
-                                <ul class="list-unstyled events-one__meta">
-                                    <li><i class="fas fa-clock"></i>8:00pm</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                </ul>
-                                <h3 class="events-one__title"><a href="{{ route('event-details') }}">Contrary to
-                                        popular belief</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-3.jpg" alt="">
-                            <div class="events-one__date">
-                                <p>23 May, 2022</p>
-                            </div>
-                            <div class="events-one__content">
-                                <ul class="list-unstyled events-one__meta">
-                                    <li><i class="fas fa-clock"></i>8:00pm</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                </ul>
-                                <h3 class="events-one__title"><a href="{{ route('event-details') }}">There are
-                                        many variations of</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-4.jpg" alt="">
-                            <div class="events-one__date">
-                                <p>23 May, 2022</p>
-                            </div>
-                            <div class="events-one__content">
-                                <ul class="list-unstyled events-one__meta">
-                                    <li><i class="fas fa-clock"></i>8:00pm</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                </ul>
-                                <h3 class="events-one__title"><a href="{{ route('event-details') }}">Play for the
-                                        world
-                                        with us</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-5.jpg" alt="">
-                            <div class="events-one__date">
-                                <p>23 May, 2022</p>
-                            </div>
-                            <div class="events-one__content">
-                                <ul class="list-unstyled events-one__meta">
-                                    <li><i class="fas fa-clock"></i>8:00pm</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                </ul>
-                                <h3 class="events-one__title"><a href="{{ route('event-details') }}">Contrary to
-                                        popular belief</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <!--Events One Single Start-->
-                    <div class="events-one__single">
-                        <div class="events-one__img">
-                            <img src="assets/images/events/events-page-1-6.jpg" alt="">
-                            <div class="events-one__date">
-                                <p>23 May, 2022</p>
-                            </div>
-                            <div class="events-one__content">
-                                <ul class="list-unstyled events-one__meta">
-                                    <li><i class="fas fa-clock"></i>8:00pm</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                </ul>
-                                <h3 class="events-one__title"><a href="{{ route('event-details') }}">There are
-                                        many variations of</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Events One Single End-->
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
