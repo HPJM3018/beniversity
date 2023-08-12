@@ -61,7 +61,7 @@ Route::put('/admin/blogs/{id}', [BlogController::class, 'update'])->name('blogs.
 #Route::get('/admin/destroys_blog/{id}', [BlogController::class, 'destroys'])->name('blogs.destroy');
 Route::delete('/admin/destroy_blog/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
 #contacts
-Route::get('/admin/contact', [ContactController::class, 'index'])->name('contact');
+#Route::get('/admin/contact', [ContactController::class, 'index'])->name('contact');
 
 
 Route::get('/admin/donations', [DonationController::class, 'index'])->name('donations.index');
