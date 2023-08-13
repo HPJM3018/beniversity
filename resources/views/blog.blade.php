@@ -27,7 +27,7 @@
     
     <section class="news-page">
    
-        <div class="container">         
+               
             <div class="row">
                 <!--News One Single Start-->
                 @foreach($blogs as $blog)
@@ -61,9 +61,9 @@
                         </div>
                     </div>
                 </div>
+                @endforeach  
             </div>
-            @endforeach
-        </div>    
+             
         </div>
         
     </section>
