@@ -34,5 +34,4 @@
                         </div>
                     </div>
                     @endforeach
-                    <!--Donations List Single End-->
 @endsection
