@@ -9259,7 +9259,7 @@ body.locked .page-wrapper {
 }
 
 .donations-list__img img {
-  width: 100%;
+  width: 50%;
   border-top-left-radius: var(--oxpins-bdr-radius);
   border-bottom-left-radius: var(--oxpins-bdr-radius);
 }
@@ -9277,7 +9277,7 @@ body.locked .page-wrapper {
   border-top-right-radius: var(--oxpins-bdr-radius);
   border-bottom-right-radius: var(--oxpins-bdr-radius);
   padding: 50px 50px 50px;
-  border: 1px solid var(--oxpins-bdr-color);
+  border: 1px solid blue;
   border-left: 0;
 }
 

@@ -6,6 +6,7 @@ use App\Models\Admin;
 use App\Models\Event;
 use App\Models\Donation;
 use App\Models\Training;
+use App\Models\Blogs;
 use App\Models\Departement;
 use Illuminate\Http\Request;
 
@@ -20,11 +21,13 @@ class AdminController extends Controller
         $donations = Donation::all();
         $events = Event::all();
         $trainings = Training::all();
+        $blogs = Blogs::all();
         return view('admin/index', compact([
             'departements',
             'donations',
             'events',
             'trainings',
+            'blogs'
         ]));
     }
 
