@@ -906,8 +906,7 @@ ul {
   .stricky-header .main-menu__list>li>ul,
   .stricky-header .main-menu__list>li>ul>li>ul {
     display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    
   }
 }
 
@@ -920,7 +919,9 @@ ul {
 
 .main-menu .main-menu__list>li+li,
 .stricky-header .main-menu__list>li+li {
-  margin-left: 55px;
+  margin-left: 15px;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .main-menu .main-menu__list>li>a,
@@ -9460,7 +9461,8 @@ body.locked .page-wrapper {
 }
 
 .donation-details__img img {
-  width: 100%;
+  width: 80%;
+  margin-left: 250px;
   border-radius: var(--oxpins-bdr-radius);
 }
 
@@ -9487,6 +9489,7 @@ body.locked .page-wrapper {
   position: relative;
   display: block;
   margin-top: 32px;
+  margin-left: 275px;
 }
 
 .donation-details__title {
