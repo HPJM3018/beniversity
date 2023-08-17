@@ -26,11 +26,12 @@
     <!--News Page Start-->
     
     <section class="news-page">
-    @foreach($blogs as $blog)
-        <div class="container">         
+   
+               
             <div class="row">
                 <!--News One Single Start-->
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                @foreach($blogs as $blog)
+                <div class="col-3">
                     <div class="news-one__single">
                         <div class="news-one__img">
                             <img src="{{asset('/storage/' .$blog->image)}}" alt="">
@@ -60,10 +61,11 @@
                         </div>
                     </div>
                 </div>
+                @endforeach  
             </div>
-        </div>    
+             
         </div>
-        @endforeach
+        
     </section>
 
 @endsection

@@ -27,47 +27,22 @@
                     <div class="about-four__left">
                         <div class="about-four__img-box">
                             <div class="about-four__img">
-                                <img src="assets/images/logo.png" alt="">
+                                <img src="assets/images/motivation.png" alt="">
                             </div>
-                            <div class="about-four__border"></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="about-four__right">
-                        <div class="section-title text-left">
-                            <span class="section-title__tagline">A propos</span>
-                            <h2 class="section-title__title">A la découverte de Beniversity </h2>
-                        </div>
-                        <p class="about-four__text">Nam ultrices odio a felis lobortis convallis. In ex nunc, ornare
-                            non condimentum et, egestas vel massa. Nullam hendrerit felis quis pellentesque
-                            porttitor. Aenean lobortis bibendum turpis et auctor. Nam iaculis, lectus vulputate
-                            cursus interdum.</p>
+                    
                         <ul class="list-unstyled about-four__points">
                             <li>
-                                <div class="icon">
-                                    <i class="fa fa-check"></i>
-                                </div>
                                 <div class="text">
-                                    <p>Proin sed magna vel mi suscipit commodo.</p>
+                                    <p>Partir de l’ambition de faire du Bénin un pays de référence en termes d’orientation académique et professionnelle, et en termes d’accompagnement des jeunes à l’insertion professionnelle et sociale, à l’entrepreneuriat, l’innovation et la créativité….</p>
+                                    <p>Notre vision est de construire un monde où chaque individu parvient à l’accomplissement de son potentiel, où le système éducatif favorise les talents créatifs et entreprenants des enfants et des jeunes et enfin un monde où tous mènent une vie professionnellement et personnellement heureuse et épanouie </p>
                                 </div>
                             </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fa fa-check"></i>
-                                </div>
-                                <div class="text">
-                                    <p>Cras aliquet nulla ut varius blandit.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fa fa-check"></i>
-                                </div>
-                                <div class="text">
-                                    <p>Nulla auctor ipsum sed nisi lis porttitor.</p>
-                                </div>
-                            </li>
+                            
                         </ul>
                         
                     </div>
@@ -82,20 +57,59 @@
         <div class="container">
             <div class="section-title text-center">
                 
-                <h2 class="section-title__title"> Notre Vision<br> </h2>
-                <div>
-                FAIRE DU BENIN UN PAYS DE REFERENCE EN TERMES D’ORIENTATION ACADEMIQUE ET PROFESSIONNNEL ET EN TERMES D’ACCOMPAGNEMENT A L’EMPLOI, L’ENTREPRENEURIAT, L’INNOVATION ET LA CREATIVITE, FAISANT DE CHAQUE ENFANT ET DE CHAQUE JEUNE UN MODEL DE SUCCES VERITABLE ET DE VIE EPANOUIE.
-                </div>
                 <br>
-                <br>
-                <h2 class="section-title__title"> Nos Mission <br> </h2>
+                <h2 class="section-title__title"> Nos Mission <br> </h2><br><br>
                 <div>
-                <ul>
-                    <p>ACCOMPAGNER LES ENFANTS DANS L’EVEIL DE LEUR POTENTIEL ET LA DECOUVERTE DE LEUR TALENT POUR UNE MEILLEURE ORIENTATION ACADEMIQUE</p>
-                    <p>ACCOMPAGNER LES ENFANTS ET LES JEUNES DANS LA MISE EN PLACE DE LEUR PROJET ACADEMIQUE ET PROFESSIONNEL</p>
-                    <p>ACCOMPAGNER LES JEUNES DANS LEUR PROCESSUS DE TRANSITION VERS LA VIE ACTIVE AFIN DE PRENDRE EN MAIN LEUR DESTINEE ET DE MENER UNE VIE HEUREUSE, EPANOUIE ET REUSSIE </p>
-                    <p>PROMOUVOIR L’INNOVATION, LA CREATIVITE ET L’ENTREPRENEURIAT CHEZ LES ENFANTS ET LES JEUNES </p>
-                </ul>
+                <section class="service_section layout_padding">
+                    <div class="row">
+                    <div class="col-4">
+                        <div class="causes-one__single">
+                            <div class="causes-one__img">
+                                <img src="assets/images/resources/enfant.jpeg" alt="">
+                            </div>
+                            <div class="causes-one__content">
+                                <h3 class="causes-one__title"><a href="#">Nous éveillons</a>
+                                </h3>
+                                <p class="causes-one__text">Nous accompagnons chaque enfant et jeune à réveiller son potentiel, son génie créatif et ingénieux et ses talents pour l’accomplissement de son parcours</p>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4" >
+                        <div class="causes-one__single">
+                            <div class="causes-one__img">
+                                <img src="assets/images/resources/chemin.jpeg" alt="">
+                            </div>
+                            <div class="causes-one__content">
+                                <h3 class="causes-one__title"><a href="#">Nous montrons le chemin</a>
+                                </h3>
+                                <p class="causes-one__text"> Nous veillons à guider chaque enfant et adolescent vers une orientation académique et professionnelle optimale, mettant en avant leurs compétences</p>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4" >
+                        <div class="causes-one__single">
+                            <div class="causes-one__img">
+                                <img src="assets/images/resources/enseignant.jpeg" alt="">
+                            </div>
+                            <div class="causes-one__content">
+                                <h3 class="causes-one__title"><a href="#">Nous bâtissons </a>
+                                </h3>
+                                <p class="causes-one__text">Nous accompagnons chaque homme et femme à avoir une vie, professionnelle valorisée, financièrement stable et personnellement épanouie.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+                
+            </div>
+        </div>
+  </section>
+
+  <!-- end service section -->
                 </div>
             </div>
             

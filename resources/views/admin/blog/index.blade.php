@@ -1,8 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="content-body">
-    
+<div class="content-body" style="margin-left:250px;">
 <div class="container text-center">
     <div class="row">
         <div class="col">
@@ -10,10 +9,7 @@
         </div>
     </div>
 </div>
-
-</div> 
-
-<div class="content-body">
+<br><br>
 <table class="table">
   <thead>
     <tr>
@@ -32,7 +28,9 @@
       <td style="color:black;">{{$blog->titre}}</td>
       <td style="color:black;">{{$blog->description}}</td>
       <td style="color:black;"> <a href="{{route('blog.edit',['id'=>$blog->id,])}}"> <button type="button" class="btn btn-primary btn-lg">Modifier </button></a></td>
-      <td style="color:black;"><a href="#"> <button type="button" class="btn btn-primary btn-lg">Supprimer </button></a></td>
+      <td style="color:black;"><a href="{{route('blog.destroy',['id'=>$blog->id])}}">  <button type="button" class="btn btn-primary btn-lg">Supprimer 
+        
+    </button></a></td>
     </tr>
     @endforeach
   </tbody>

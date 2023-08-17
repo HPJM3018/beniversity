@@ -2,17 +2,15 @@
 
 @section('content')
 
-<div class="content-body">
-
-    <div class="container text-center">
+<div class="content-body" style="margin-left:250px;">
+<div class="container text-center">
         <div class="row">
                 <div class="col">
                     <a href="{{route('training.create')}}"><button type="button" class="btn btn-danger btn-lg">Ajouter une formation</button></a>
                 </div>
         </div>
     </div>
-</div>
-<div class="content-body">
+    <br><br>
     <table class="table">
     <thead>
         <tr>
@@ -31,7 +29,7 @@
         <td style="color:black;">{{$training->titre}}</td>
         <td style="color:black;">{{$training->description}}</td>
         <td style="color:black;"> <a href="{{route('training.edit',['id'=>$training->id,])}}"> <button type="button" class="btn btn-primary btn-lg"> Modifier </button></a></td>
-        <td style="color:black;"><a href="#"> <button type="button" class="btn btn-primary btn-lg">Supprimer </button></a></td>
+        <td style="color:black;"><a href="{{route('training.destroy',['id'=>$training->id,])}}"> <button type="button" class="btn btn-primary btn-lg">Supprimer </button></a></td>
         </tr>
         @endforeach
     </tbody>

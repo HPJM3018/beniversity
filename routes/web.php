@@ -50,7 +50,7 @@ Route::post('/admin/create_training', [TrainingController::class, 'store'])->nam
 Route::get('/admin/creates_training', [TrainingController::class, 'create'])->name('training.create');
 Route::get('/admin/edit_training{id}', [TrainingController::class, 'edit'])->name('training.edit');
 Route::put('/admin/updates_training{id}', [TrainingController::class, 'update'])->name('training.update');
-Route::delete('/admin/destroy_training/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
+Route::get('/admin/destroy_training/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
 #Blogs
 Route::get('/admin/blog', [BlogController::class, 'index'])->name('blogs');
 Route::get('/users/show/{id}', [BlogController::class, 'show'])->name('blog.show');
@@ -58,10 +58,8 @@ Route::post('/admin/create_blog', [BlogController::class, 'store'])->name('blog.
 Route::get('/admin/creates_blog', [BlogController::class, 'create'])->name('blog.create');
 Route::get('/admin/blogs/edit_blog{id}', [BlogController::class, 'edit'])->name('blog.edit');
 Route::put('/admin/blogs/{id}', [BlogController::class, 'update'])->name('blogs.update');
-#Route::get('/admin/destroys_blog/{id}', [BlogController::class, 'destroys'])->name('blogs.destroy');
-Route::delete('/admin/destroy_blog/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
-#contacts
-Route::get('/admin/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/admin/destroy_blog/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
+
 
 
 Route::get('/admin/donations', [DonationController::class, 'index'])->name('donations.index');
