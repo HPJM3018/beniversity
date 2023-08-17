@@ -34,27 +34,23 @@ class DepartementController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'description' => 'required',
-            'picture' => 'required|mimes:jpg,png',
+            'image' => 'required|image|mimes:jpeg,png,jpg'
         ]);
 
-        /*if ($validator->fails()) {
-            return response()->json([
-                'message' => 'la validation a échoué',
-                'errors' => $validator->errors()
-            ], 422);
-        };*/
-
-        if($request->file('picture')){
-            $file = $request->file('picture');
-            $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('images/departements'), $filename);
+        if($request->file('image')){
+            $currentTime = now(); // Obtenir la date et l'heure actuelles
+            $dateTimeString = $currentTime->format('Ymd_His'); // Convertir en chaîne au format "AnnéeMoisJour_HeureMinuteSeconde"
+            $image_name = $dateTimeString . '.' . $request->file('image')->getClientOriginalExtension();
+            $image_path = $request->file('image')->storeAs('images/departements', $image_name, 'public');
 
             Departement::create([
                 'name' => $request->name,
                 'description' => $request->description,
-                'picture' => $filename,
+                'image' => $image_path,
             ]);
         }
+        
+        //$image_path = $request->image->store("images/departements");
 
         return redirect("admin/departements")->with('success', 'Département créer avec succèss');
     }
@@ -83,31 +79,25 @@ class DepartementController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
         ]);
 
         // Si une nouvelle image est envoyée
-        if ($request->has("picture")) {
+        if ($request->has("image")) {
             // On ajoute la règle de validation pour "picture"
-            $validator["picture"] = 'required|mimes:jpg,png';
+            $resquest["image"] = 'required|mimes:jpg,png';
         }
-        /*if ($validator->fails()) {
-            return response()->json([
-                'message' => 'la validation a échoué',
-                'errors' => $validator->errors()
-            ], 422);
-        };*/
 
-        if($request->file('picture')){
-            $file = $request->file('picture');
-            $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('departements'), $filename);
-
-            Departement::create([
-                'name' => $request->name,
-                'description' => $request->description,
-                'picture' => $filename,
-            ]);
+        if($request->has('image')){
+            Storage::delete($donation->image);
+            $path_image = $request->image->store("images/departements");
         }
+
+        $departement->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => isset($path_image) ? $path_image : $departement->image,      
+        ]);
 
         return redirect("admin/departements")->with('success', 'Département mise à jour avec succèss');;
     }

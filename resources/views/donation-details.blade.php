@@ -33,16 +33,8 @@
                                 </div>
                             </div>
                             <div class="donation-details__content">
-                                <h3 class="donation-details__title">Let’s education for children get good life</h3>
-                                <p class="donation-details__text">Lorem ipsum dolor sit amet, cibo mundi ea duo, vim
-                                    exerci phaedrum. There are many variations of passages of Lorem Ipsum available,
-                                    but the majority have alteration in some injected or words which don't look even
-                                    slightly believable. If you are going to use a passage of Lorem Ipsum, you need
-                                    to be sure there isn't anything embarrang hidden in the middle of text. All the
-                                    Lorem Ipsum generators on the Internet tend to repeat predefined chunks as
-                                    necessary, making this the first true generator on the Internet. It uses a
-                                    dictionary of over 200 Latin words, combined with a handful of model sentence
-                                    structures, to generate Lorem Ipsum which looks reasonable. </p>
+                                <h3 class="donation-details__title">{{ $donation->name }}</h3>
+                                <p class="donation-details__text">{{ $donation->description }}</p>
                             </div>
                         </div>
                         <div class="donation-details__donate">
@@ -57,7 +49,7 @@
                                         </div>
                                         <div class="text">
                                             <span>Soulevé</span>
-                                            <p>$25,270</p>
+                                            <p>{{ $donation->raised }}</p>
                                         </div>
                                     </li>
                                     <li>
@@ -66,7 +58,7 @@
                                         </div>
                                         <div class="text">
                                             <span>Objectif</span>
-                                            <p>$30,000</p>
+                                            <p>{{ $donation->goal }}</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -77,9 +69,7 @@
                         </div>
                         <div class="donation-details__summary">
                             <h3 class="donation-details__summary-title">Résumé</h3>
-                            <p class="donation-details__summary-text-1">Lorem Ipsum has been the industry's standard
-                                dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                                scrambled it to make a type simen book.</p>
+                            <p class="donation-details__summary-text-1">{{ $donation->summary }}</p>
                             <ul class="list-unstyled donation-details__summary-list">
                                 <li>
                                     <div class="icon">
@@ -165,61 +155,6 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="comment-one">
-                            <h3 class="comment-one__title">2 commentaires</h3>
-                            <div class="comment-one__single">
-                                <div class="comment-one__image">
-                                    <img src="assets/images/blog/comment-1-1.jpg" alt="">
-                                </div>
-                                <div class="comment-one__content">
-                                    <h3>Kevin martin</h3>
-                                    <p>It has survived not only five centuries, but also the leap into electronic
-                                        typesetting unchanged. It was popularised in the sheets containing lorem
-                                        ipsum is simply free text.</p>
-                                    <a href="news-details.html" class="thm-btn comment-one__btn">Répondre</a>
-                                </div>
-                            </div>
-                            <div class="comment-one__single">
-                                <div class="comment-one__image">
-                                    <img src="assets/images/blog/comment-1-2.jpg" alt="">
-                                </div>
-                                <div class="comment-one__content">
-                                    <h3>Sarah albert</h3>
-                                    <p>It has survived not only five centuries, but also the leap into electronic
-                                        typesetting unchanged. It was popularised in the sheets containing lorem
-                                        ipsum is simply free text.</p>
-                                    <a href="news-details.html" class="thm-btn comment-one__btn">Répondre</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-form">
-                            <h3 class="comment-form__title">Laissez un commentaire</h3>
-                            <form action="https://layerdrops.com/oxpinshtml/main-html/assets/inc/sendemail.php" class="comment-one__form contact-form-validated"
-                                novalidate="novalidate">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Votre nom" name="name">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="comment-form__input-box">
-                                            <input type="email" placeholder="Adresse e-mail" name="email">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="comment-form__input-box text-message-box">
-                                            <textarea name="message" placeholder="Ecrire un message"></textarea>
-                                        </div>
-                                        <div class="comment-form__btn-box">
-                                            <button type="submit" class="thm-btn comment-form__btn">Envoyer un commentaire</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>

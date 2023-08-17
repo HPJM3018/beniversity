@@ -32,30 +32,28 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'requiredrequired|string|max:255',
-            'picture' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-            'description' => 'requiredrequired|string',
-            'location' => 'requiredrequired|string|max:255',
+            'name' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
+            'date' => 'required|date|after:today',
+            'start_time' => 'required|date_format:H:i',
+            'end_time' => 'required|date_format:H:i|after:start_time',
+            'description' => 'required|string',
+            'location' => 'required|string|max:255',
         ]);
 
-        if($request->file('picture')){
-            $file = $request->file('picture');
-            $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('images/events'), $filename);
-            
-            Event::create([
-                'title' => $request->title,
-                'picture' => $filename,
-                'date' => $request->date,
-                'time' => $request->time,
-                'description' => $request->description,
-                'location' => $request->location,
-            ]);
-        }
+        $path_image = $request->image->store("images/events");
 
-        return redirect("admin/events")->with('success', 'Evenement créer avec succèss');
+        Event::create([
+            'name' => $request->name,
+            'image' => $path_image,
+            'date' => $request->date,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'description' => $request->description,
+            'location' => $request->location,
+        ]);
+
+        return redirect("admin/events")->with('success', 'Evenement créé avec succèss');
     }
 
     /**
@@ -71,7 +69,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view("admin.event.edit", compact('event'));
+        return view("admin.events.edit", compact('event'));
     }
 
     /**
@@ -80,32 +78,42 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required',
-            'picture' => 'required',
-            'date' => 'required',
+            'name' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
+            'date' => 'required|date',
             'time' => 'required',
-            'description' => 'required',
-            'location' => 'required',
-            'category_id' => 'required',
+            'description' => 'required|string',
+            'location' => 'required|string|max:255',
         ]);
 
-        if($request->file('image')){
-            $file = $request->file('image');
-            $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('public/images'), $filename);
+        // Si une nouvelle image est envoyée
+        if ($request->has("image")) {
+            // On ajoute la règle de validation pour "picture"
+            $resquest["image"] = 'required|mimes:jpg,png';
+        }
+        /*if ($validator->fails()) {
+            return response()->json([
+                'message' => 'la validation a échoué',
+                'errors' => $validator->errors()
+            ], 422);
+        };*/
 
-            Category::whereId($id)->update([
-                'title' => $request->title,
-                'image' => $filename,
-                'date' => $request->date,
-                'time' => $request->time,
-                'description' => $request->description,
-                'location' => $request->location,
-                'category_id' => $request->category_id,
-            ]);
+        if($request->has('image')){
+            Storage::delete($donation->image);
+            $path_image = $request->image->store("images/events");
         }
 
-        return redirect("dashboard/category")->withSuccess('Modifié avec succès');
+        $event->update([
+            'name' => $request->name,
+            'date' => $request->date,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'description' => $request->description,
+            'location' => $request->location,
+            'image' => isset($path_image) ? $path_image : $event->image,       
+        ]);
+
+        return redirect("admin/events")->with('success', 'Evènement modifié avec succèss');
 
     }
 

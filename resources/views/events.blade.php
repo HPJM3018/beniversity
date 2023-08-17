@@ -28,17 +28,17 @@
                     <!--Events One Single Start-->
                     <div class="events-one__single">
                         <div class="events-one__img">
-                            <img src="{{ url('images/events/'.$event->picture) }}" alt="">
+                            <img src="{{ url('storage/'.$event->image) }}" alt="" width="370" height="470">
                             <div class="events-one__date">
                                 <p>{{ $event->date }}</p>
                             </div>
                             <div class="events-one__content">
                                 <ul class="list-unstyled events-one__meta">
-                                    <li><i class="fas fa-clock"></i>{{ $event->time }}</li>
+                                    <li><i class="fas fa-clock"></i>{{ $event->start_time }}</li>
                                     <li><i class="fas fa-map-marker-alt"></i>{{ $event->location }}</li>
                                 </ul>
                                 <h3 class="events-one__title">
-                                    <a href="{{ route('event-details', $event) }}">{{ $event->title }}</a>
+                                    <a href="{{ route('event-details', $event) }}">{{ $event->name }}</a>
                                 </h3>
                             </div>
                         </div>

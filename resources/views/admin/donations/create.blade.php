@@ -40,25 +40,29 @@
 
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label>Nom du don</label>
+                                    <label>Nom du don
+                                        <span class="text-danger">*</span>
+                                    </label>
                                     <input type="text" class="form-control" placeholder="1234 Main St" name="name">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Description du don</label>
-                                    <textarea name="description" class="form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du département" >{{ old('departement') }}</textarea>
+                                    <label>Ojectif
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="number" class="form-control" placeholder="1234 Main St" name="goal">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Date</label>
-                                    <textarea name="date" class="form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du département" >{{ old('departement') }}</textarea>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label>Heure</label>
-                                    <textarea name="description" class="form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du département" >{{ old('departement') }}</textarea>
+                                    <label>Description du don
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea name="description" class="form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du don" ></textarea>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" name="picture" class="custom-file-input">
-                                        <label class="custom-file-label">Image</label>
+                                        <input type="file" name="image" class="custom-file-input">
+                                        <label class="custom-file-label">Image
+                                            <span class="text-danger">*</span>
+                                        </label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Upload</span>

@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('name');
             $table->string('image')->nullable();
-            $table->date('date');
-            $table->time('time');
+            $table->integer('goal');
+            $table->integer('raised')->nullable();
             $table->text('description');
-            $table->string('summary');
-            $table->foreignId('category_id')->references('id')->on('categories')->default(1);
+           // $table->foreignId('category_id')->references('id')->on('categories')->default(1);
             $table->timestamps();
         });
     }

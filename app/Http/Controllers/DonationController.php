@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Donation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class DonationController extends Controller
 {
@@ -30,12 +32,10 @@ class DonationController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'description' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-            'summary' => 'required',
-            'picture' => 'required|mimes:jpg,png',
+            'goal' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
         ]);
 
         /*if ($validator->fails()) {
@@ -45,19 +45,19 @@ class DonationController extends Controller
             ], 422);
         };*/
 
-        if($request->file('picture')){
-            $file = $request->file('picture');
-            $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('departements'), $filename);
+        if($request->file('image')){
+            $currentTime = now(); // Obtenir la date et l'heure actuelles
+            $dateTimeString = $currentTime->format('Ymd_His'); // Convertir en chaîne au format "AnnéeMoisJour_HeureMinuteSeconde"
+            $image_name = $dateTimeString . '.' . $request->file('image')->getClientOriginalExtension();
+            $image_path = $request->file('image')->storeAs('images/donations', $image_name, 'public');
 
-            Departement::create([
-                'title' => $request->name,
-                'date' => $request->date,
-                'time' => $request->time,
-                'summary' => $request->summary,
+            Donation::create([
+                'name' => $request->name,
+                'goal' => $request->goal,
                 'description' => $request->description,
-                'picture' => $filename,
+                'image' => $image_path,
             ]);
+    
         }
 
         return redirect("admin/donations")->with('success', 'Don créer avec succèss');
@@ -85,7 +85,41 @@ class DonationController extends Controller
      */
     public function update(Request $request, Donation $donation)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'description' => 'required',
+            'goal' => 'required',
+            'raised' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
+        ]);
+
+        // Si une nouvelle image est envoyée
+        if ($request->has("image")) {
+            // On ajoute la règle de validation pour "picture"
+            $resquest["image"] = 'required|mimes:jpg,png';
+        }
+        /*if ($validator->fails()) {
+            return response()->json([
+                'message' => 'la validation a échoué',
+                'errors' => $validator->errors()
+            ], 422);
+        };*/
+
+        if($request->has('image')){
+            Storage::delete($donation->image);
+            $path_image = $request->image->store("images/donations");
+        }
+
+        $donation->update([
+            'name' => $request->name,
+            'goal' => $request->date,
+            'raised' => $request->time,
+            'description' => $request->description,
+            'image' => isset($path_image) ? $path_image : $donation->image,       
+        ]);
+
+        return redirect("admin/donations")->with('success', 'Don mise à jour avec succèss');
+
     }
 
     /**

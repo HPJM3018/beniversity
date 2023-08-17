@@ -23,13 +23,13 @@ class HomeController extends Controller
 
     public function donations()
     {
+        $donations = Donation::all();
         return view('donations', compact('donations'));
     }
 
-    public function donation_details()
+    public function donation_details(Donation $donation)
     {
-        $donations = Donation::all();
-        return view('donation-details', compact('donations'));
+        return view('donation-details', compact('donation'));
     }
 
     public function donate_now()

@@ -28,7 +28,7 @@
                     <!--Events One Single Start-->
                     <div class="events-one__single">
                         <div class="events-one__img">
-                            <img src="{{ url('images/departements/'.$departement->picture) }}" alt="">
+                            <img src="{{ url('storage/'.$departement->image) }}" alt="" width="370" height="470">
                             <div class="events-one__content">
                                 <h3 class="events-one__title"><a href="{{ route('departement-details', $departement) }}">{{ $departement->name }}</a></h3>
                             </div>

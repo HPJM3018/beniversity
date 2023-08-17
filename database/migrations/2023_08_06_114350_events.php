@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('picture')->nullable();
-            $table->string('title');
+            $table->string('image')->nullable();
+            $table->string('name');
             $table->date('date');
-            $table->time('time');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->text('description');
             $table->string('location');
             //$table->foreignId('category_id')->references('id')->on('categories')->nullable();

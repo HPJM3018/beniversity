@@ -33,24 +33,33 @@
                     <h4 class="card-title">Créer un département</h4>
                 </div>
                 <div class="card-body">
-                    <div class="basic-form">
-                        <form method="POST" action="{{ route('departements.store') }}" enctype="multipart/form-data">
+                    <div class="form-validation">
+                        <form class="form-valide" method="POST" action="{{ route('departements.store') }}" enctype="multipart/form-data">
 
                             @csrf
 
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label>Nom du département</label>
-                                    <input type="text" class="form-control" placeholder="1234 Main St" name="name">
+                                    <label class="col-form-label">Nom du département
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" value="{{ old('name') }}" placeholder="1234 Main St" name="name">
+                                    @error("name")
+			                        <div>{{ $message }}</div>
+			                        @enderror
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Description du département</label>
-                                    <textarea name="description" class="form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du département" >{{ old('departement') }}</textarea>
+                                    <label>Description du département
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea name="description" class="summernote form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du département" required>{{ old('departement') }}</textarea>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" name="picture" class="custom-file-input">
-                                        <label class="custom-file-label">Image</label>
+                                        <input type="file" name="image" class="custom-file-input" required>
+                                        <label class="custom-file-label">Image
+                                            <span class="text-danger">*</span>
+                                        </label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Upload</span>

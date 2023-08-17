@@ -15,6 +15,9 @@
     <link href="{{ asset('vendor/chartist/css/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+    <!-- Summernote -->
+    <link href="{{ asset('vendor/summernote/summernote.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -75,6 +78,16 @@
     <!-- Datatable -->
     <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
+
+    <!-- Summernote -->
+    <script src="{{ asset('vendor/summernote/js/summernote.min.js') }}"></script>
+    <!-- Summernote init -->
+    <script src="{{ asset('js/plugins-init/summernote-init.js') }}"></script>
+
+    <!-- Jquery Validation -->
+    <script src="{{ asset('vendor/jquery-validation/jquery.validate.min.js') }}"></script>
+    <!-- Form validate init -->
+    <script src="{{ asset('js/plugins-init/jquery.validate-init.js') }}"></script>
 
 </body>
 

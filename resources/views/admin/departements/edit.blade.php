@@ -42,23 +42,29 @@
 
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label>Nom du département</label>
+                                    <label>Nom du département
+                                        <span class="text-danger">*</span>
+                                    </label>
                                     <input type="text" value="{{ $departement->name }}" class="form-control" placeholder="1234 Main St" name="name">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Description du département</label>
-                                    <textarea name="description" class="form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du département" >{{ $departement->description }}</textarea>
+                                    <label>Description du département
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea name="description" class="summernote form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du département" required>{{ $departement->description }}</textarea>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label>Image</label>
                                     <div>
-                                        <img src="{{ url('departements/'.$departement->picture) }}" alt="" width="50" height="50">
+                                        <img src="{{ url('storage/'.$departement->image) }}" alt="" width="50" height="50">
                                     </div>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" name="picture" class="custom-file-input">
-                                        <label class="custom-file-label">Image</label>
+                                        <input type="file" name="image" class="custom-file-input">
+                                        <label class="custom-file-label">Image
+                                            <span class="text-danger">*</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>

@@ -61,10 +61,9 @@
                                             <th scope="col">N°</th>
                                             <th scope="col">Image</th>
                                             <th scope="col">Titre du don</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Heure</th>
+                                            <th scope="col">Objectif</th>
+                                            <th scope="col">Soulevé</th>
                                             <th scope="col">Description</th>
-                                            <th scope="col">Résumé</th>
                                             <th colspan="2" scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -72,12 +71,11 @@
                                         @foreach ($donations as $donation)
                                         <tr>
                                             <td>{{ $donation->id }}</td>
-                                            <td><img src="{{ url('donations/'.$donation->picture) }}" alt="" width="50" height="50"></td>
-                                            <td>{{ $donation->title }}</td>
-                                            <td>{{ $donation->date }}</td>
-                                            <td>{{ $donation->time }}</td>
+                                            <td><img src="{{ asset('storage/'.$donation->image) }}" alt="" width="50" height="50"></td>
+                                            <td>{{ $donation->name }}</td>
+                                            <td>{{ $donation->goal }}</td>
+                                            <td>{{ $donation->raised }}</td>
                                             <td>{{ $donation->description }}</td>
-                                            <td>{{ $donation->summary }}</td>
                                             <td>
                                                 <a href="{{ route('donations.edit', $donation)}}" class="mr-4" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"><i

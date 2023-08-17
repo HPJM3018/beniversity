@@ -6,13 +6,6 @@
         Content body start
     ***********************************-->
     <div class="content-body">
-
-        @if(session()->get('success'))
-            <div class="alert alert-success">
-            {{ session()->get('success') }}  
-            </div><br />
-        @endif
-
         <div class="container-fluid">
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
@@ -29,6 +22,12 @@
                 </div>
             </div>
             <!-- row -->
+
+            @if(session()->get('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}  
+            </div><br />
+            @endif
 
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
@@ -62,7 +61,8 @@
                                             <th scope="col">Image</th>
                                             <th scope="col">Titre de l'événements</th>
                                             <th scope="col">Date</th>
-                                            <th scope="col">Heure</th>
+                                            <th scope="col">Heure de début</th>
+                                            <th scope="col">Heure de fin</th>
                                             <th scope="col">Lieu</th>
                                             <th scope="col">Description</th>
                                             <th colspan="2" scope="col">Action</th>
@@ -72,10 +72,11 @@
                                         @foreach ($events as $event)
                                         <tr>
                                             <td>{{ $event->id }}</td>
-                                            <td><img src="{{ url('images/events/'.$event->picture) }}" alt="" width="50" height="50"></td>
-                                            <td>{{ $event->title }}</td>
+                                            <td><img src="{{ url('storage/'.$event->image) }}" alt="" width="50" height="50"></td>
+                                            <td>{{ $event->name }}</td>
                                             <td>{{ $event->date }}</td>
-                                            <td>{{ $event->time }}</td>
+                                            <td>{{ $event->start_time }}</td>
+                                            <td>{{ $event->end_time }}</td>
                                             <td>{{ $event->location }}</td>
                                             <td>{{ $event->description }}</td>
                                             <td>

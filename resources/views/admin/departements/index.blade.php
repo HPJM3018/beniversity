@@ -69,7 +69,7 @@
                                         @foreach ($departements as $departement)
                                         <tr>
                                             <td>{{ $departement->id }}</td>
-                                            <td><img src="{{ url('images/departements/'.$departement->picture) }}" alt="" width="50" height="50"></td>
+                                            <td><img src="{{ url('storage/'.$departement->image) }}" alt="" width="50" height="50"></td>
                                             <td>{{ $departement->name }}</td>
                                             <td>{{ $departement->description }}</td>
                                             <td>

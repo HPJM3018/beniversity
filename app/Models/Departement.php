@@ -11,7 +11,7 @@ class Departement extends Model
 
     protected $fillable = [
         'name', 
-        'picture',
+        'image',
         'description',
     ];
 }

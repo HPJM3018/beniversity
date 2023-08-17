@@ -40,29 +40,47 @@
 
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label>Titre de l'événement</label>
-                                    <input type="text" class="form-control" placeholder="1234 Main St" name="title">
+                                    <label>Nom de l'événement
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="1234 Main St" name="name">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Description de l'événement</label>
+                                    <label>Description de l'événement
+                                        <span class="text-danger">*</span>
+                                    </label>
                                     <textarea name="description" class="form-control" id="description" lang="fr" rows="10" cols="50" placeholder="La description du département" ></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Date</label>
+                                    <label>Date
+                                        <span class="text-danger">*</span>
+                                    </label>
                                     <input type="date" class="form-control" placeholder="1234 Main St" name="date">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Heure</label>
-                                    <input type="time" class="form-control" placeholder="1234 Main St" name="time">
+                                    <label>Heure de début
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="time" class="form-control" placeholder="1234 Main St" name="start_time">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Lieu</label>
+                                    <label>Heure de fin
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="time" class="form-control" placeholder="1234 Main St" name="end_time">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Lieu
+                                        <span class="text-danger">*</span>
+                                    </label>
                                     <input type="text" class="form-control" placeholder="1234 Main St" name="location">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" name="picture" class="custom-file-input">
-                                        <label class="custom-file-label">Image</label>
+                                        <input type="file" name="image" class="custom-file-input">
+                                        <label class="custom-file-label">Image
+                                            <span class="text-danger">*</span>
+                                        </label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Upload</span>
